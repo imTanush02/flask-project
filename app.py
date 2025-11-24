@@ -20,6 +20,7 @@ def home():
     current_time = datetime.now().strftime('%M:%M:%S')
     return render_template('index.html',current_day_name=current_day_name,current_time=current_time)
 
+
 @app.route('/todo')
 def todo_page():
     return render_template('todo.html')
@@ -36,7 +37,6 @@ def submit_todo_item():
         return render_template('success-page.html')
     except Exception as e:
         return str(e), 400
-
 
 @app.route('/submit' , methods=['POST'])
 def submit():
