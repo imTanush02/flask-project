@@ -22,22 +22,6 @@ def home():
 
 
 
-@app.route('/todo')
-def todo_page():
-    return render_template('todo.html')
-
-@app.route('/submittodoitem', methods=['POST'])
-def submit_todo_item():
-    try:
-        item_data = {
-            'itemName': request.form['itemName'],
-            'itemDescription': request.form['itemDescription'],
-            'created_at': datetime.now()
-        }
-        collection.insert_one(item_data)
-        return render_template('success-page.html')
-    except Exception as e:
-        return str(e), 400
 
 
 @app.route('/submit' , methods=['POST'])
